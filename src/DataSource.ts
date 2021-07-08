@@ -180,7 +180,7 @@ export class DataSource extends DataSourceApi<MyQuery, MyDataSourceOptions> {
                 let t: FieldType = FieldType.string;
                 if (fieldName === timePath || isRFC3339_ISO6801(String(doc[fieldName]))) {
                   t = FieldType.time;
-                } else if (_.isNumber(doc[fieldName])) {
+                } else if (!_.isNaN(_.toNumber(doc[fieldName]))) {
                   t = FieldType.number;
                 }
                 let title;
@@ -206,7 +206,7 @@ export class DataSource extends DataSourceApi<MyQuery, MyDataSourceOptions> {
                   type: t,
                   config: { displayName: title },
                 }).parse = (v: any) => {
-                  return v || '';
+                  return t == FieldType.number ? _.toNumber(v) : v || '';
                 };
               }
               dataFrameMap.set(identifiersString, dataFrame);
