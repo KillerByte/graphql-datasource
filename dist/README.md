@@ -1,5 +1,6 @@
 # GraphQL Data Source
 
+
 ![CI](https://github.com/fifemon/graphql-datasource/workflows/CI/badge.svg)
 
 [Grafana](https://grafana.com) datasource plugin that provides access to a

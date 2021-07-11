@@ -206,7 +206,7 @@ export class DataSource extends DataSourceApi<MyQuery, MyDataSourceOptions> {
                   type: t,
                   config: { displayName: title },
                 }).parse = (v: any) => {
-                  return t == FieldType.number ? _.toNumber(v) : v || '';
+                  return t === FieldType.number ? _.toNumber(v) : v || '';
                 };
               }
               dataFrameMap.set(identifiersString, dataFrame);
